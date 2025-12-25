@@ -1,0 +1,599 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Título con brillo */
+.title-glow {
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.8),
+                 0 0 40px rgba(255, 215, 0, 0.6),
+                 0 0 60px rgba(255, 215, 0, 0.4);
+    animation: titlePulse 2s ease-in-out infinite;
+}
+
+@keyframes titlePulse {
+    0%, 100% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(255, 215, 0, 0.6); }
+    50% { text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 60px rgba(255, 215, 0, 0.8); }
+}
+
+/* ========== CONTENEDOR DEL ÁRBOL ========== */
+.tree-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 600px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ========== ESTRELLA ========== */
+.star {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+}
+
+.star-icon {
+    font-size: 60px;
+    color: #ffd700;
+    animation: starPulse 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 15px #ffd700) drop-shadow(0 0 30px #ffaa00);
+    display: block;
+}
+
+.star-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.5) 0%, rgba(255, 170, 0, 0.2) 40%, transparent 70%);
+    animation: starGlowPulse 2s ease-in-out infinite;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.star-rays {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: 
+        linear-gradient(0deg, transparent 45%, rgba(255,215,0,0.6) 50%, transparent 55%),
+        linear-gradient(90deg, transparent 45%, rgba(255,215,0,0.6) 50%, transparent 55%),
+        linear-gradient(45deg, transparent 45%, rgba(255,215,0,0.4) 50%, transparent 55%),
+        linear-gradient(-45deg, transparent 45%, rgba(255,215,0,0.4) 50%, transparent 55%);
+    animation: starRays 3s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes starPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+@keyframes starGlowPulse {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+@keyframes starRays {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ========== ÁRBOL SVG ========== */
+.christmas-tree {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 10;
+}
+
+.tree-layer {
+    transition: all 0.3s ease;
+}
+
+.branch-detail {
+    opacity: 0.6;
+}
+
+.snow-cap {
+    animation: snowShimmer 3s ease-in-out infinite;
+}
+
+@keyframes snowShimmer {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+}
+
+/* ========== LUCES DEL ÁRBOL ========== */
+.tree-lights {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    pointer-events: none;
+    z-index: 30;
+}
+
+.light {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: lightBlink 1.5s ease-in-out infinite;
+}
+
+.light:nth-child(1) { background: #ff4444; animation-delay: 0s; }
+.light:nth-child(2) { background: #ffdd44; animation-delay: 0.1s; }
+.light:nth-child(3) { background: #44ff44; animation-delay: 0.2s; }
+.light:nth-child(4) { background: #ff44ff; animation-delay: 0.3s; }
+.light:nth-child(5) { background: #44ddff; animation-delay: 0.4s; }
+.light:nth-child(6) { background: #ff4444; animation-delay: 0.5s; }
+.light:nth-child(7) { background: #ffdd44; animation-delay: 0.6s; }
+.light:nth-child(8) { background: #44ff44; animation-delay: 0.7s; }
+.light:nth-child(9) { background: #ff44ff; animation-delay: 0.8s; }
+.light:nth-child(10) { background: #44ddff; animation-delay: 0.9s; }
+.light:nth-child(11) { background: #ff4444; animation-delay: 1s; }
+.light:nth-child(12) { background: #ffdd44; animation-delay: 1.1s; }
+.light:nth-child(13) { background: #44ff44; animation-delay: 1.2s; }
+.light:nth-child(14) { background: #ff44ff; animation-delay: 1.3s; }
+.light:nth-child(15) { background: #44ddff; animation-delay: 1.4s; }
+.light:nth-child(16) { background: #ff4444; animation-delay: 1.5s; }
+.light:nth-child(17) { background: #ffdd44; animation-delay: 1.6s; }
+.light:nth-child(18) { background: #44ff44; animation-delay: 1.7s; }
+.light:nth-child(19) { background: #ff44ff; animation-delay: 1.8s; }
+.light:nth-child(20) { background: #44ddff; animation-delay: 1.9s; }
+.light:nth-child(21) { background: #ff4444; animation-delay: 2s; }
+.light:nth-child(22) { background: #ffdd44; animation-delay: 2.1s; }
+.light:nth-child(23) { background: #44ff44; animation-delay: 2.2s; }
+.light:nth-child(24) { background: #ff44ff; animation-delay: 2.3s; }
+
+@keyframes lightBlink {
+    0%, 100% { 
+        opacity: 1; 
+        box-shadow: 0 0 8px currentColor, 0 0 15px currentColor, 0 0 25px currentColor;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.3; 
+        box-shadow: 0 0 3px currentColor;
+        transform: scale(0.7);
+    }
+}
+
+/* ========== ADORNOS/BOLAS ========== */
+.ornaments {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    pointer-events: none;
+    z-index: 25;
+}
+
+.ornament {
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.ball {
+    display: block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    animation: ballShine 2s ease-in-out infinite;
+    box-shadow: inset -3px -3px 6px rgba(0,0,0,0.3), 
+                inset 3px 3px 6px rgba(255,255,255,0.3),
+                0 2px 8px rgba(0,0,0,0.4);
+}
+
+.ball::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    width: 6px;
+    height: 4px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+}
+
+.ball.red { background: linear-gradient(135deg, #ff6b6b, #c0392b); }
+.ball.gold { background: linear-gradient(135deg, #ffd700, #b8860b); }
+.ball.blue { background: linear-gradient(135deg, #5dade2, #2471a3); }
+.ball.silver { background: linear-gradient(135deg, #ecf0f1, #95a5a6); }
+
+@keyframes ballShine {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.3); }
+}
+
+/* ========== GUIRNALDAS/TINSEL ========== */
+.tinsel-svg {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+    pointer-events: none;
+    z-index: 20;
+}
+
+.tinsel {
+    fill: none;
+    stroke: url(#tinselGradient);
+    stroke-width: 3;
+    stroke-linecap: round;
+    animation: tinselShimmer 2s ease-in-out infinite;
+    filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.5));
+}
+
+.tinsel {
+    stroke: rgba(255, 215, 0, 0.7);
+}
+
+@keyframes tinselShimmer {
+    0%, 100% { opacity: 0.6; stroke-width: 2; }
+    50% { opacity: 1; stroke-width: 4; }
+}
+
+/* ========== REGALOS COLGANDO ========== */
+.hanging-gifts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.hanging-gift {
+    position: absolute;
+    pointer-events: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.hanging-gift:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
+    z-index: 100;
+}
+
+/* Posiciones de los regalos colgando */
+.gift-1 { top: 22%; left: 35%; animation: swing 3s ease-in-out infinite; }
+.gift-2 { top: 22%; left: 62%; animation: swing 3s ease-in-out infinite 0.5s; }
+.gift-3 { top: 38%; left: 25%; animation: swing 3s ease-in-out infinite 1s; }
+.gift-4 { top: 38%; left: 72%; animation: swing 3s ease-in-out infinite 1.5s; }
+.gift-5 { top: 55%; left: 50%; animation: swing 3s ease-in-out infinite 2s; }
+
+@keyframes swing {
+    0%, 100% { transform: rotate(-3deg); }
+    50% { transform: rotate(3deg); }
+}
+
+.hanging-gift:hover {
+    animation: none;
+    transform: scale(1.2) rotate(0deg);
+}
+
+/* Cuerda del regalo */
+.gift-string {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(to bottom, rgba(255,215,0,0.3), #ffd700);
+}
+
+/* Caja del regalo */
+.gift-box {
+    position: relative;
+    width: 45px;
+    height: 38px;
+}
+
+.gift-body {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.gift-top {
+    position: absolute;
+    top: 0;
+    left: -3px;
+    width: calc(100% + 6px);
+    height: 10px;
+    border-radius: 3px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Colores de los regalos */
+.gift-1 .gift-body { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+.gift-1 .gift-top { background: linear-gradient(135deg, #ff6b6b, #e74c3c); }
+
+.gift-2 .gift-body { background: linear-gradient(135deg, #3498db, #2980b9); }
+.gift-2 .gift-top { background: linear-gradient(135deg, #5dade2, #3498db); }
+
+.gift-3 .gift-body { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+.gift-3 .gift-top { background: linear-gradient(135deg, #bb8fce, #9b59b6); }
+
+.gift-4 .gift-body { background: linear-gradient(135deg, #2ecc71, #27ae60); }
+.gift-4 .gift-top { background: linear-gradient(135deg, #58d68d, #2ecc71); }
+
+.gift-5 .gift-body { background: linear-gradient(135deg, #f39c12, #d68910); }
+.gift-5 .gift-top { background: linear-gradient(135deg, #f7dc6f, #f39c12); }
+
+.gift-ribbon-v {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 100%;
+    background: linear-gradient(90deg, #ffd700, #ffec8b, #ffd700);
+    z-index: 2;
+}
+
+.gift-ribbon-h {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background: linear-gradient(180deg, #ffd700, #ffec8b, #ffd700);
+    z-index: 1;
+}
+
+.gift-bow {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    z-index: 3;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
+}
+
+/* ========== MODAL ========== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background: linear-gradient(145deg, #1a1a2e, #16213e, #0f3460);
+    border: 3px solid #e94560;
+    border-radius: 25px;
+    padding: 30px;
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+    position: relative;
+    animation: modalAppear 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 0 60px rgba(233, 69, 96, 0.6), 
+                0 0 100px rgba(233, 69, 96, 0.3),
+                inset 0 0 60px rgba(233, 69, 96, 0.1);
+    overflow: hidden;
+}
+
+@keyframes modalAppear {
+    0% { transform: scale(0) rotate(-180deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 20px;
+    color: #fff;
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 15px rgba(233, 69, 96, 0.4);
+    z-index: 10;
+}
+
+.close-btn:hover {
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 6px 20px rgba(233, 69, 96, 0.6);
+}
+
+.gift-opened-animation {
+    position: relative;
+}
+
+.confetti-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    pointer-events: none;
+}
+
+.gift-open-icon {
+    font-size: 70px;
+    animation: giftOpenBounce 0.8s ease infinite;
+}
+
+@keyframes giftOpenBounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
+}
+
+.gift-photo {
+    max-width: 280px;
+    max-height: 280px;
+    border-radius: 20px;
+    margin: 20px auto;
+    border: 4px solid #e94560;
+    box-shadow: 0 0 30px rgba(233, 69, 96, 0.5),
+                0 10px 40px rgba(0, 0, 0, 0.3);
+    object-fit: cover;
+    animation: photoAppear 0.5s ease-out 0.3s both;
+    display: block;
+}
+
+@keyframes photoAppear {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.gift-message {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-top: 15px;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    line-height: 1.6;
+    animation: messageAppear 0.5s ease-out 0.5s both;
+}
+
+@keyframes messageAppear {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.hearts-container {
+    margin-top: 15px;
+    font-size: 1.8rem;
+}
+
+.hearts-container span {
+    display: inline-block;
+    animation: heartBeat 1s ease-in-out infinite;
+}
+
+.hearts-container span:nth-child(1) { animation-delay: 0s; }
+.hearts-container span:nth-child(2) { animation-delay: 0.2s; }
+.hearts-container span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.3); }
+}
+
+/* ========== COPOS DE NIEVE ========== */
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.snowflake {
+    position: absolute;
+    top: -50px;
+    color: #fff;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.snowflake:nth-child(1) { left: 5%; animation-duration: 10s; animation-delay: 0s; font-size: 1rem; }
+.snowflake:nth-child(2) { left: 12%; animation-duration: 12s; animation-delay: 1s; font-size: 1.5rem; }
+.snowflake:nth-child(3) { left: 22%; animation-duration: 8s; animation-delay: 2s; font-size: 1.2rem; }
+.snowflake:nth-child(4) { left: 32%; animation-duration: 14s; animation-delay: 0.5s; font-size: 1.8rem; }
+.snowflake:nth-child(5) { left: 42%; animation-duration: 9s; animation-delay: 3s; font-size: 1rem; }
+.snowflake:nth-child(6) { left: 52%; animation-duration: 11s; animation-delay: 1.5s; font-size: 1.4rem; }
+.snowflake:nth-child(7) { left: 62%; animation-duration: 13s; animation-delay: 2.5s; font-size: 1.6rem; }
+.snowflake:nth-child(8) { left: 72%; animation-duration: 10s; animation-delay: 0.8s; font-size: 1.1rem; }
+.snowflake:nth-child(9) { left: 82%; animation-duration: 15s; animation-delay: 1.2s; font-size: 1.3rem; }
+.snowflake:nth-child(10) { left: 92%; animation-duration: 7s; animation-delay: 2s; font-size: 1.7rem; }
+.snowflake:nth-child(11) { left: 8%; animation-duration: 11s; animation-delay: 3.5s; font-size: 1.2rem; }
+.snowflake:nth-child(12) { left: 88%; animation-duration: 9s; animation-delay: 4s; font-size: 1.4rem; }
+
+@keyframes fall {
+    0% {
+        transform: translateY(-50px) rotate(0deg) translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(50vh) rotate(180deg) translateX(20px);
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg) translateX(-20px);
+        opacity: 0.3;
+    }
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+    .tree-container {
+        max-width: 350px;
+        height: 500px;
+    }
+    
+    .star-icon {
+        font-size: 45px;
+    }
+    
+    .hanging-gift {
+        transform: scale(0.85);
+    }
+    
+    .gift-photo {
+        max-width: 220px;
+        max-height: 220px;
+    }
+    
+    .gift-message {
+        font-size: 1.1rem;
+    }
+    
+    .modal-content {
+        padding: 20px;
+    }
+}

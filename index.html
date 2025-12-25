@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄 Feliz Navidad Mi Amor 🎄</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="min-h-screen bg-gradient-to-b from-slate-900 via-blue-950 to-slate-900 overflow-x-hidden">
+    <!-- Copos de nieve -->
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+        <div class="snowflake">❄</div>
+        <div class="snowflake">❅</div>
+        <div class="snowflake">❆</div>
+    </div>
+
+    <!-- Título -->
+    <h1 class="text-center text-3xl md:text-5xl font-bold text-white pt-6 mb-2 title-glow">
+        🎄 Feliz Navidad Mi Amor 🎄
+    </h1>
+    <p class="text-center text-lg text-pink-300 mb-4">Toca los regalos para abrirlos 💝</p>
+
+    <!-- Contenedor principal del árbol -->
+    <div class="tree-container">
+        <!-- Estrella -->
+        <div class="star">
+            <div class="star-icon">★</div>
+            <div class="star-glow"></div>
+            <div class="star-rays"></div>
+        </div>
+
+        <!-- Árbol SVG elaborado -->
+        <svg class="christmas-tree" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+            <!-- Definiciones de gradientes y filtros -->
+            <defs>
+                <linearGradient id="treeGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#2d5a27"/>
+                    <stop offset="50%" style="stop-color:#1e4620"/>
+                    <stop offset="100%" style="stop-color:#143615"/>
+                </linearGradient>
+                <linearGradient id="treeGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#3a7233"/>
+                    <stop offset="50%" style="stop-color:#2d5a27"/>
+                    <stop offset="100%" style="stop-color:#1e4620"/>
+                </linearGradient>
+                <linearGradient id="treeGradient3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4a8a42"/>
+                    <stop offset="50%" style="stop-color:#3a7233"/>
+                    <stop offset="100%" style="stop-color:#2d5a27"/>
+                </linearGradient>
+                <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:#3d2314"/>
+                    <stop offset="50%" style="stop-color:#5c3a1e"/>
+                    <stop offset="100%" style="stop-color:#3d2314"/>
+                </linearGradient>
+                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="3" dy="5" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+                </filter>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            
+            <!-- Capa 4 - Base (más grande) -->
+            <polygon points="200,200 60,380 340,380" fill="url(#treeGradient1)" filter="url(#shadow)" class="tree-layer"/>
+            <!-- Detalles de ramas capa 4 -->
+            <polygon points="200,200 80,340 95,340" fill="#1a4a1a" class="branch-detail"/>
+            <polygon points="200,200 320,340 305,340" fill="#1a4a1a" class="branch-detail"/>
+            <polygon points="200,200 100,370 120,370" fill="#1a4a1a" class="branch-detail"/>
+            <polygon points="200,200 300,370 280,370" fill="#1a4a1a" class="branch-detail"/>
+            
+            <!-- Capa 3 -->
+            <polygon points="200,140 90,280 310,280" fill="url(#treeGradient2)" filter="url(#shadow)" class="tree-layer"/>
+            <!-- Detalles de ramas capa 3 -->
+            <polygon points="200,140 110,250 125,250" fill="#2a5a2a" class="branch-detail"/>
+            <polygon points="200,140 290,250 275,250" fill="#2a5a2a" class="branch-detail"/>
+            
+            <!-- Capa 2 -->
+            <polygon points="200,80 120,190 280,190" fill="url(#treeGradient3)" filter="url(#shadow)" class="tree-layer"/>
+            <!-- Detalles de ramas capa 2 -->
+            <polygon points="200,80 135,170 148,170" fill="#3a6a3a" class="branch-detail"/>
+            <polygon points="200,80 265,170 252,170" fill="#3a6a3a" class="branch-detail"/>
+            
+            <!-- Capa 1 - Cima -->
+            <polygon points="200,30 155,100 245,100" fill="url(#treeGradient3)" filter="url(#shadow)" class="tree-layer"/>
+            
+            <!-- Tronco -->
+            <rect x="175" y="380" width="50" height="60" fill="url(#trunkGradient)" rx="3"/>
+            <!-- Base del tronco -->
+            <ellipse cx="200" cy="440" rx="40" ry="12" fill="#654321"/>
+            
+            <!-- Nieve en las ramas -->
+            <path d="M155,100 Q165,95 175,100 Q185,95 195,100 Q205,95 215,100 Q225,95 235,100 Q245,95 245,100" 
+                  fill="none" stroke="white" stroke-width="4" stroke-linecap="round" opacity="0.8" class="snow-cap"/>
+            <path d="M120,190 Q140,183 160,190 Q180,183 200,190 Q220,183 240,190 Q260,183 280,190" 
+                  fill="none" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.7" class="snow-cap"/>
+            <path d="M90,280 Q120,270 150,280 Q180,270 200,280 Q220,270 250,280 Q280,270 310,280" 
+                  fill="none" stroke="white" stroke-width="5" stroke-linecap="round" opacity="0.6" class="snow-cap"/>
+        </svg>
+
+        <!-- Luces del árbol -->
+        <div class="tree-lights">
+            <span class="light" style="top: 12%; left: 48%;"></span>
+            <span class="light" style="top: 18%; left: 42%;"></span>
+            <span class="light" style="top: 18%; left: 55%;"></span>
+            <span class="light" style="top: 26%; left: 36%;"></span>
+            <span class="light" style="top: 26%; left: 50%;"></span>
+            <span class="light" style="top: 26%; left: 62%;"></span>
+            <span class="light" style="top: 36%; left: 30%;"></span>
+            <span class="light" style="top: 36%; left: 45%;"></span>
+            <span class="light" style="top: 36%; left: 58%;"></span>
+            <span class="light" style="top: 36%; left: 70%;"></span>
+            <span class="light" style="top: 48%; left: 24%;"></span>
+            <span class="light" style="top: 48%; left: 38%;"></span>
+            <span class="light" style="top: 48%; left: 52%;"></span>
+            <span class="light" style="top: 48%; left: 66%;"></span>
+            <span class="light" style="top: 48%; left: 76%;"></span>
+            <span class="light" style="top: 60%; left: 20%;"></span>
+            <span class="light" style="top: 60%; left: 35%;"></span>
+            <span class="light" style="top: 60%; left: 50%;"></span>
+            <span class="light" style="top: 60%; left: 65%;"></span>
+            <span class="light" style="top: 60%; left: 80%;"></span>
+            <span class="light" style="top: 72%; left: 22%;"></span>
+            <span class="light" style="top: 72%; left: 42%;"></span>
+            <span class="light" style="top: 72%; left: 58%;"></span>
+            <span class="light" style="top: 72%; left: 78%;"></span>
+        </div>
+
+        <!-- Bolas/Adornos -->
+        <div class="ornaments">
+            <div class="ornament" style="top: 15%; left: 46%;"><span class="ball red"></span></div>
+            <div class="ornament" style="top: 22%; left: 38%;"><span class="ball gold"></span></div>
+            <div class="ornament" style="top: 22%; left: 58%;"><span class="ball blue"></span></div>
+            <div class="ornament" style="top: 32%; left: 32%;"><span class="ball red"></span></div>
+            <div class="ornament" style="top: 32%; left: 52%;"><span class="ball silver"></span></div>
+            <div class="ornament" style="top: 32%; left: 66%;"><span class="ball gold"></span></div>
+            <div class="ornament" style="top: 44%; left: 26%;"><span class="ball blue"></span></div>
+            <div class="ornament" style="top: 44%; left: 42%;"><span class="ball red"></span></div>
+            <div class="ornament" style="top: 44%; left: 58%;"><span class="ball gold"></span></div>
+            <div class="ornament" style="top: 44%; left: 72%;"><span class="ball blue"></span></div>
+            <div class="ornament" style="top: 56%; left: 22%;"><span class="ball gold"></span></div>
+            <div class="ornament" style="top: 56%; left: 38%;"><span class="ball silver"></span></div>
+            <div class="ornament" style="top: 56%; left: 62%;"><span class="ball red"></span></div>
+            <div class="ornament" style="top: 56%; left: 78%;"><span class="ball blue"></span></div>
+            <div class="ornament" style="top: 68%; left: 28%;"><span class="ball red"></span></div>
+            <div class="ornament" style="top: 68%; left: 48%;"><span class="ball gold"></span></div>
+            <div class="ornament" style="top: 68%; left: 72%;"><span class="ball silver"></span></div>
+        </div>
+
+        <!-- Guirnaldas/Tinsel -->
+        <svg class="tinsel-svg" viewBox="0 0 400 500">
+            <path class="tinsel" d="M170,95 Q200,110 230,95" />
+            <path class="tinsel" d="M135,180 Q200,210 265,180" />
+            <path class="tinsel" d="M105,270 Q200,310 295,270" />
+            <path class="tinsel" d="M75,360 Q200,410 325,360" />
+        </svg>
+
+        <!-- REGALOS COLGANDO -->
+        <div class="hanging-gifts">
+            <!-- Regalo 1 -->
+            <div class="hanging-gift gift-1" onclick="openGift(1)">
+                <div class="gift-string"></div>
+                <div class="gift-box">
+                    <div class="gift-top"></div>
+                    <div class="gift-body"></div>
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="gift-bow">🎀</div>
+                </div>
+            </div>
+            
+            <!-- Regalo 2 -->
+            <div class="hanging-gift gift-2" onclick="openGift(2)">
+                <div class="gift-string"></div>
+                <div class="gift-box">
+                    <div class="gift-top"></div>
+                    <div class="gift-body"></div>
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="gift-bow">🎀</div>
+                </div>
+            </div>
+            
+            <!-- Regalo 3 -->
+            <div class="hanging-gift gift-3" onclick="openGift(3)">
+                <div class="gift-string"></div>
+                <div class="gift-box">
+                    <div class="gift-top"></div>
+                    <div class="gift-body"></div>
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="gift-bow">🎀</div>
+                </div>
+            </div>
+            
+            <!-- Regalo 4 -->
+            <div class="hanging-gift gift-4" onclick="openGift(4)">
+                <div class="gift-string"></div>
+                <div class="gift-box">
+                    <div class="gift-top"></div>
+                    <div class="gift-body"></div>
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="gift-bow">🎀</div>
+                </div>
+            </div>
+            
+            <!-- Regalo 5 -->
+            <div class="hanging-gift gift-5" onclick="openGift(5)">
+                <div class="gift-string"></div>
+                <div class="gift-box">
+                    <div class="gift-top"></div>
+                    <div class="gift-body"></div>
+                    <div class="gift-ribbon-v"></div>
+                    <div class="gift-ribbon-h"></div>
+                    <div class="gift-bow">🎀</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para regalo abierto -->
+    <div id="giftModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close-btn" onclick="closeModal()">✕</button>
+            <div class="gift-opened-animation">
+                <div class="confetti-container" id="confetti"></div>
+                <div class="gift-open-icon">🎁</div>
+            </div>
+            <img id="giftImage" src="" alt="Foto" class="gift-photo">
+            <p id="giftMessage" class="gift-message"></p>
+            <div class="hearts-container">
+                <span>💕</span><span>💖</span><span>💕</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
